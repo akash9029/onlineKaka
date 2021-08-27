@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:onlinekaka/contact.dart';
-import 'package:onlinekaka/description.dart';
+
 import 'package:onlinekaka/dishes.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 void main() {
   runApp(MyApp());

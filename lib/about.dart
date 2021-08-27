@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class aboutPage extends StatefulWidget {
-  const aboutPage({Key? key}) : super(key: key);
+class AboutPage extends StatefulWidget {
+  const AboutPage({Key? key}) : super(key: key);
 
   @override
-  _aboutPageState createState() => _aboutPageState();
+  _AboutPageState createState() => _AboutPageState();
 }
 
-class _aboutPageState extends State<aboutPage> {
+class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Container(

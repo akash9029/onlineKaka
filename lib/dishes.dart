@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:onlinekaka/about.dart';
 import 'package:onlinekaka/contact.dart';
 import 'package:onlinekaka/description.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class DishesHome extends StatefulWidget {
   const DishesHome({Key? key}) : super(key: key);
@@ -72,7 +71,7 @@ class _DishesHomeState extends State<DishesHome> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (BuildContext ctx) => aboutPage()));
+                            builder: (BuildContext ctx) => AboutPage()));
                   },
                   child: Text(
                     "Visit our Site",
@@ -124,56 +123,56 @@ class _DishesHomeState extends State<DishesHome> {
             padding: const EdgeInsets.only(top: 10),
             child: ListView(
               children: [
-                CreateList(
+                createList(
                     "assets/alamgir.jpg",
                     "Alamgir Hotel",
                     "Mughlai, Kebabs, Biryani",
                     "Naaz Cinema Road,Aminabad Lucknow UP 226018",
                     "4.5",
                     "open"),
-                CreateList(
+                createList(
                     "assets/awadhi.jpg",
                     "Awadhi Kakori Kabab (City Station)",
                     "Mughlai, Biryani",
                     "City Station, Wazirganj Lucknow UP 226022",
                     "2.0",
                     "open"),
-                CreateList(
+                createList(
                     "assets/celebration.jpg",
                     "Celebrations By Onlinekaka",
                     "Flowers, Cakes",
                     "Hazratganj Lucknow Uttar Pradesh 226001",
                     "5.0",
                     "close"),
-                CreateList(
+                createList(
                     "assets/LaPinzo.png",
                     "La Pino'z Pizza (Hazratganj)",
                     "Pizza, Italian",
                     "Sapru Marg Lucknow UP 226001",
                     "4.1",
                     "open"),
-                CreateList(
+                createList(
                     "assets/Mubeens.jpeg",
                     "Mubeens",
                     "Mughlai, Biryani, Kulcha Nehari",
                     "Akbari Gate,Chowk Lucknow UP 226003",
                     "3.0",
                     "close"),
-                CreateList(
+                createList(
                     "assets/Shabaan.png",
                     "Shabaan Tikka Biryani",
                     "Mughlai, Biryani",
                     "Chowk Lucknow UP 226003",
                     "5.0",
                     "close"),
-                CreateList(
+                createList(
                     "assets/Subway.jpg",
                     "Subway (Hazratganj)",
                     "Healthy Food, Fast Food",
                     "6,Sapru Marg,Hazratganj Lucknow UP 226010",
                     "4.0",
                     "open"),
-                CreateList(
+                createList(
                     "assets/Tunday.png",
                     "Tunday Kababi (Aliganj)",
                     "Vegetarian, Mughlai, Kebabs, Biryani",
@@ -188,13 +187,13 @@ class _DishesHomeState extends State<DishesHome> {
     );
   }
 
-  Widget CreateList(String str1, String str2, String str3, String str4,
+  Widget createList(String str1, String str2, String str3, String str4,
       String str5, String str6) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (BuildContext ctx) => descriptionPage()),
+          MaterialPageRoute(builder: (BuildContext ctx) => DescriptionPage()),
         );
       },
       child: Container(

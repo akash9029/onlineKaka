@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class descriptionPage extends StatefulWidget {
-  const descriptionPage({Key? key}) : super(key: key);
+class DescriptionPage extends StatefulWidget {
+  const DescriptionPage({Key? key}) : super(key: key);
 
   @override
-  _descriptionPageState createState() => _descriptionPageState();
+  _DescriptionPageState createState() => _DescriptionPageState();
 }
 
-class _descriptionPageState extends State<descriptionPage> {
+class _DescriptionPageState extends State<DescriptionPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
