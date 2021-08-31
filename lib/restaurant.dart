@@ -15,3 +15,5 @@ class RestaurantName {
     required this.activate,
   });
 }
+
+class Menu {}

@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:onlinekaka/about.dart';
 import 'package:onlinekaka/contact.dart';
 import 'package:onlinekaka/description.dart';
+import 'package:onlinekaka/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'restaurant.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DishesHome extends StatefulWidget {
   const DishesHome({Key? key}) : super(key: key);
@@ -84,6 +88,7 @@ class _DishesHomeState extends State<DishesHome> {
         rating: "3.4",
         activate: "open"),
   ];
+  final number = '09029639531';
 
   @override
   Widget build(BuildContext context) {
@@ -157,17 +162,59 @@ class _DishesHomeState extends State<DishesHome> {
         appBar: AppBar(
           actions: [
             IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.search,
-                size: 25,
-              ),
-            ),
-            IconButton(
-              onPressed: () {},
+              onPressed: () async {
+                await FlutterPhoneDirectCaller.callNumber(number);
+              },
               icon: Icon(
                 Icons.call,
                 size: 20,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: Colors.black),
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext ctx) => AlertDialog(
+                            title: Text("Are you sure, You want to logout ?"),
+                            actions: [
+                              TextButton(
+                                onPressed: () async {
+                                  {
+                                    SharedPreferences prefs =
+                                        await SharedPreferences.getInstance();
+                                    setState(() {
+                                      prefs.remove('userName');
+                                      prefs.remove('password');
+                                    });
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext ctx) =>
+                                                Login()));
+                                  }
+                                },
+                                child:
+                                    Text("Yes", style: TextStyle(fontSize: 18)),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  "No",
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              )
+                            ],
+                          ));
+                },
+                child: Text(
+                  "Logout",
+                  style: TextStyle(fontSize: 15),
+                ),
               ),
             ),
           ],
@@ -176,6 +223,7 @@ class _DishesHomeState extends State<DishesHome> {
             "assets/logo.png",
             fit: BoxFit.contain,
             height: 72,
+            width: 180,
           ),
         ),
         body: Container(

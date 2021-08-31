@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:onlinekaka/login.dart';
 import 'package:onlinekaka/dishes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,10 +33,28 @@ class _SplashScreenHomeState extends State<SplashScreenHome> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (BuildContext ctx) => DishesHome()));
-    });
+    Future.delayed(
+      Duration(seconds: 2),
+      () async {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        var userNamePref = prefs.getString('userName');
+        if (userNamePref == null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext ctx) => Login(),
+            ),
+          );
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext ctx) => DishesHome(),
+            ),
+          );
+        }
+      },
+    );
   }
 
   @override
